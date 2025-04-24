@@ -14,13 +14,13 @@ from authentication.serializers import *
 
 
 def attendance_home(request):
-    try:
-        user = get_object_or_404(User, id=110000)
-        name = user.name  
-    except Exception as e:
-            print(str(e))
-            return Response( status=status.HTTP_400_BAD_REQUEST)
-    return HttpResponse(f"Attendance Backend {name}")
+    # try:
+    #     user = get_object_or_404(User, id=110000)
+    #     name = user.name  
+    # except Exception as e:
+    #         print(str(e))
+    #         return Response( status=status.HTTP_400_BAD_REQUEST)
+    return HttpResponse(f"Attendance Backend")
 # Create your views here.
 class AttendancePost(APIView):
     def post(self, request):
