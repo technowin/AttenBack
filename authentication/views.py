@@ -68,32 +68,32 @@ class RegistrationView(APIView):
             print(str(e))
             return Response( status=status.HTTP_400_BAD_REQUEST)
         
-class getUserDetails(APIView):
-    def post(self, request):
-        try:
-            # print(request.data)
-            user = get_object_or_404(User, id=request.data["user_id"])
+# class getUserDetails(APIView):
+#     def post(self, request):
+#         try:
+#             # print(request.data)
+#             user = get_object_or_404(User, id=request.data["user_id"])
 
-            serializer = UserSerializer(user).data
-            user_relation = get_object_or_404(UserRelationMaster, user_id=serializer['id'])
+#             serializer = UserSerializer(user).data
+#             user_relation = get_object_or_404(UserRelationMaster, user_id=serializer['id'])
     
-            # Accessing the related LocationMaster instance using the ForeignKey
-            location_instance = get_object_or_404(LocationMaster, location_id=user_relation.location_id)
-            shift_instance = get_object_or_404(ShiftMaster, shift_id=user_relation.shift_id)
-            # Extracting latitude and longitude from the related LocationMaster instance
-            latitude = location_instance.latitude
-            longitude = location_instance.longitude
-            in_shift_time = shift_instance.in_shift_time
-            out_shift_time = shift_instance.out_shift_time
-            serializer["latitude"] = latitude
-            serializer["longitude"] = longitude
-            serializer["in_shift_time"] = in_shift_time
-            serializer["out_shift_time"] = out_shift_time
+#             # Accessing the related LocationMaster instance using the ForeignKey
+#             location_instance = get_object_or_404(LocationMaster, location_id=user_relation.location_id)
+#             shift_instance = get_object_or_404(ShiftMaster, shift_id=user_relation.shift_id)
+#             # Extracting latitude and longitude from the related LocationMaster instance
+#             latitude = location_instance.latitude
+#             longitude = location_instance.longitude
+#             in_shift_time = shift_instance.in_shift_time
+#             out_shift_time = shift_instance.out_shift_time
+#             serializer["latitude"] = latitude
+#             serializer["longitude"] = longitude
+#             serializer["in_shift_time"] = in_shift_time
+#             serializer["out_shift_time"] = out_shift_time
             
-            return JsonResponse(serializer, status=status.HTTP_200_OK,safe=False)
-            # return JsonResponse([], status=status.HTTP_200_OK,safe=False)
+#             return JsonResponse(serializer, status=status.HTTP_200_OK,safe=False)
+#             # return JsonResponse([], status=status.HTTP_200_OK,safe=False)
             
-        except Exception as e:
-            print(str(e))
-            return Response( status=status.HTTP_400_BAD_REQUEST)
+#         except Exception as e:
+#             print(str(e))
+#             return Response( status=status.HTTP_400_BAD_REQUEST)
     
