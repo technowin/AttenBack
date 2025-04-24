@@ -112,7 +112,7 @@ WSGI_APPLICATION = 'AttenBack.wsgi.application'
 
 # ########LIVE -----------------------------------------------
 
-ALLOWED_HOSTS=['3.109.160.130']
+ALLOWED_HOSTS = ['3.109.160.130']
 
 # DEBUG = True
 DEBUG = False
