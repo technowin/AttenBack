@@ -114,9 +114,8 @@ WSGI_APPLICATION = 'AttenBack.wsgi.application'
 
 ALLOWED_HOSTS=['3.109.160.130']
 
-# ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.1.195','10.0.2.2']
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 
 
 DATABASES = {
