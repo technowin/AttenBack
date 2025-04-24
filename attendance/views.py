@@ -231,7 +231,7 @@ class ApplyEarlyLeave(APIView):
                 
                 # Check response status and return appropriate response
                 if response.status_code == 200:
-                    return Response(status=status.HTTP_200_OK)
+                    return Response("ghdfjhj")
                 else:
                     return Response(status=status.HTTP_400_BAD_REQUEST)
             except Exception as e:

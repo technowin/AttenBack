@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)=b9=9hpvvvnusymd-^cc8ofbnz==%+pzz&rllw#w9r8*$#gfx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+# DEBUG = True
 APPEND_SLASH = False
 
 
@@ -112,21 +112,27 @@ WSGI_APPLICATION = 'AttenBack.wsgi.application'
 
 # ########LIVE -----------------------------------------------
 
-ALLOWED_HOSTS = ['3.109.160.130']
+ALLOWED_HOSTS=['3.109.160.130']
 
+# ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '192.168.1.195','10.0.2.2']
 # DEBUG = True
-DEBUG = False
+# DEBUG = False
+
 
 DATABASES = {
     'default': {
+        # 'ENGINE': 'django.db.backends.mysql',
         'ENGINE': 'mysql.connector.django',
-        'NAME': 'attendance_management',
-        'USER': 'root',
-        'PASSWORD': 'Mysql_MH-047319',
-        # 'HOST': '3.109.160.130',
-         'HOST': '127.0.0.1',
-        'PORT': '3306',
-    }
+        'NAME': 'attendance_management',      # Replace with your database name
+        'USER': 'root',      # Replace with your database user
+        'PASSWORD': 'Mysql_MH-047319',  # Replace with your database password
+        # 'HOST': '3.109.160.130',       # IP FOR TEST
+        'HOST': '127.0.0.1',       # IP FOR LOCAL VM
+        'PORT': '3306',            
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
+    },
 }
 
 # #########  LIVE -----------------------------------------------
@@ -172,26 +178,6 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
    
 ]
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'WARNING',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(BASE_DIR, 'D:/Python Projects/AttenBack logs', 'django.log'),  
-            # 'filename': os.path.join(BASE_DIR, '/home/ubuntu/TDMS logs', 'django.log'),  
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'WARNING',
-            'propagate': True,
-        },
-    },
-}
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
