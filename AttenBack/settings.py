@@ -156,6 +156,27 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            # 'filename': os.path.join(BASE_DIR, 'D:/Python Projects/AttenBack logs', 'django.log'),  
+            'filename': os.path.join(BASE_DIR, '/home/ubuntu/AttenBack logs', 'django.log'),  
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+    },
+}
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
