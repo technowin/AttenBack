@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)=b9=9hpvvvnusymd-^cc8ofbnz==%+pzz&rllw#w9r8*$#gfx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = True
 APPEND_SLASH = False
 
 
@@ -117,21 +117,16 @@ ALLOWED_HOSTS=['3.109.160.130']
 # DEBUG = True
 DEBUG = False
 
-
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.mysql',
         'ENGINE': 'mysql.connector.django',
-        'NAME': 'attendance_management',      # Replace with your database name
-        'USER': 'root',      # Replace with your database user
-        'PASSWORD': 'Mysql_MH-047319',  # Replace with your database password
-        # 'HOST': '3.109.160.130',       # IP FOR TEST
-        'HOST': '127.0.0.1',       # IP FOR LOCAL VM
-        'PORT': '3306',            
-        'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
-        },
-    },
+        'NAME': 'attendance_management',
+        'USER': 'root',
+        'PASSWORD': 'Mysql_MH-047319',
+        # 'HOST': '3.109.160.130',
+         'HOST': '127.0.0.1',
+        'PORT': '3306',
+    }
 }
 
 # #########  LIVE -----------------------------------------------
@@ -154,27 +149,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
-
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'WARNING',
-            'class': 'logging.FileHandler',
-            # 'filename': os.path.join(BASE_DIR, 'D:/Python Projects/AttenBack logs', 'django.log'),  
-            'filename': os.path.join(BASE_DIR, '/home/ubuntu/AttenBack logs', 'django.log'),  
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'WARNING',
-            'propagate': True,
-        },
-    },
-}
 
 
 # Internationalization

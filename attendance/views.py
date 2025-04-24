@@ -14,7 +14,14 @@ from authentication.serializers import *
 
 
 def attendance_home(request):
-    return HttpResponse("Attendance Backend")
+    try:
+        user = get_object_or_404(User, id=110000)
+        name = user.name  # Assuming your User model has a 'name' field
+    except Exception as e:
+            print(str(e))
+            return Response( status=status.HTTP_400_BAD_REQUEST)
+    return HttpResponse(f"Attendance Backend {name}")
+
 # Create your views here.
 class AttendancePost(APIView):
     def post(self, request):
