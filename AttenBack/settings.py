@@ -172,6 +172,26 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
    
 ]
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'WARNING',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'D:/Python Projects/AttenBack logs', 'django.log'),  
+            # 'filename': os.path.join(BASE_DIR, '/home/ubuntu/TDMS logs', 'django.log'),  
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
+    },
+}
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
